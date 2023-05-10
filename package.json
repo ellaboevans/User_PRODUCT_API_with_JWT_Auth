@@ -1,5 +1,5 @@
 {
-  "name": "auth",
+  "name": "user_and_product_creation_and_jwt_authentication_backend",
   "version": "1.0.0",
   "description": "This is a Node.js server project built using the Express framework and MongoDB database. The project allows for the creation of users and products, as well as authentication using JSON Web Tokens (JWT).",
   "main": "server.js",
