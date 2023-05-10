@@ -1,4 +1,4 @@
-# Express Node.js Server with MongoDB, User and Product Creation, and JWT Authentication
+# User and Product Creation, and JWT Authentication Backend
 
 This is a Node.js server project built using the Express framework and MongoDB database. The project allows for the creation of users and products, as well as authentication using JSON Web Tokens (JWT).
 
@@ -16,7 +16,7 @@ This is a Node.js server project built using the Express framework and MongoDB d
 - MongoDB
 - JSON Web Tokens (JWT)
 - bcrypt
-- Validator
+- Validator(Joi)
 
 ## Installation
 To install and run the project, follow these steps:
@@ -37,11 +37,9 @@ Contributions to the project are welcome and encouraged. To contribute, please f
 2. Create a new branch with your changes.
 3. Submit a pull request to merge your changes into the main branch.
 
-## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Author
 - Evans Elabo
 - GitHub: [evanselabo](https://github.com/ellaboevans)
-- LinkedIn: [Evans Elabo](https://www.linkedin.com/in/eelabo/)
+- LinkedIn: [Evans Elabo](https://www.linkedin.com/in/eelabo)
 - Twitter: [@evanselabo](https://twitter.com/dev_concept)
