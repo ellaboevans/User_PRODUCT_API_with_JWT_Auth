@@ -16,10 +16,11 @@ const GetProducts = asyncHandler(async (req, res) => {
 // @access Private
 
 const GetProduct = asyncHandler(async (req, res) => {
-  const product = await Product.findById({ _id: req.params.productID });
+  const id = req.params.productID;
+  const product = await Product.findById({ _id: id });
   if (!product) return res.status(404).json({ message: "No product found" });
   try {
-    const singleProduct = await Product.findOne({ _id: req.params.productID });
+    const singleProduct = await Product.findOne({ _id: id });
     res.json(singleProduct);
   } catch (error) {
     res.json({ message: error.message });
@@ -32,7 +33,9 @@ const GetProduct = asyncHandler(async (req, res) => {
 
 const CreateProduct = asyncHandler(async (req, res) => {
   const { name, price, quantity, description } = req.body;
+
   // Let Validate Fields before making produtcs
+
   if (!name || !price || !quantity || !description)
     return res.status(400).json({ message: "All fields are required" });
   const product = await new Product({
@@ -54,11 +57,12 @@ const CreateProduct = asyncHandler(async (req, res) => {
 // @access Private
 
 const updatedProduct = asyncHandler(async (req, res) => {
-  const product = await Product.findById({ _id: req.params.productID });
+  const id = req.params.productID;
+  const product = await Product.findById({ _id: id });
   if (!product) return res.status(404).json({ message: "No product found" });
   try {
     const deletedProduct = await Product.findByIdAndDelete({
-      _id: req.params.productID,
+      _id: id,
     });
     res.json(deletedProduct);
   } catch (error) {
@@ -70,14 +74,15 @@ const updatedProduct = asyncHandler(async (req, res) => {
 // @desc Delete a product
 // @access Private
 const DeleteProduct = asyncHandler(async (req, res) => {
+  const id = req.params.productID;
   const { name, price, quantity, description } = req.body;
-  const product = await Product.findById({ _id: req.params.productID });
+  const product = await Product.findById({ _id: id });
   if (!product)
     if (!product) return res.status(404).json({ message: "No product found" });
   try {
     const updatedProduct = await Product.updateOne(
       {
-        _id: req.params.productID,
+        _id: id,
       },
       {
         $set: {
