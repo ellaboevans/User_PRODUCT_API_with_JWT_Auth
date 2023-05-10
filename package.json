@@ -1,14 +1,14 @@
 {
   "name": "auth",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a Node.js server project built using the Express framework and MongoDB database. The project allows for the creation of users and products, as well as authentication using JSON Web Tokens (JWT).",
   "main": "server.js",
   "scripts": {
     "start": "node server",
     "dev": "nodemon server"
   },
   "keywords": [],
-  "author": "",
+  "author": "Evans Elabo",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
