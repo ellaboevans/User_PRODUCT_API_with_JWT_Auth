@@ -56,24 +56,7 @@ const CreateProduct = asyncHandler(async (req, res) => {
 // @desc Update a product
 // @access Private
 
-const updatedProduct = asyncHandler(async (req, res) => {
-  const id = req.params.productID;
-  const product = await Product.findById({ _id: id });
-  if (!product) return res.status(404).json({ message: "No product found" });
-  try {
-    const deletedProduct = await Product.findByIdAndDelete({
-      _id: id,
-    });
-    res.json(deletedProduct);
-  } catch (error) {
-    res.json({ message: error.message });
-  }
-});
-
-// @DELETE /api/products/:productID
-// @desc Delete a product
-// @access Private
-const DeleteProduct = asyncHandler(async (req, res) => {
+const UpdateProduct = asyncHandler(async (req, res) => {
   const id = req.params.productID;
   const { name, price, quantity, description } = req.body;
   const product = await Product.findById({ _id: id });
@@ -99,10 +82,28 @@ const DeleteProduct = asyncHandler(async (req, res) => {
   }
 });
 
+// @DELET /api/products/:productID
+// @desc Delete a product
+// @access Private
+
+const DeleteProduct = asyncHandler(async (req, res) => {
+  const id = req.params.productID;
+  const product = await Product.findById({ _id: id });
+  if (!product) return res.status(404).json({ message: "No product found" });
+  try {
+    const deletedProduct = await Product.findByIdAndDelete({
+      _id: id,
+    });
+    res.json(deletedProduct);
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
 module.exports = {
   GetProducts,
   GetProduct,
   CreateProduct,
-  updatedProduct,
+  UpdateProduct,
   DeleteProduct,
 };

@@ -5,7 +5,7 @@ const {
   GetProducts,
   GetProduct,
   CreateProduct,
-  updatedProduct,
+  UpdateProduct,
   DeleteProduct,
 } = require("../controllers/productController");
 
@@ -19,7 +19,7 @@ router.post("/", verify, CreateProduct);
 router.get("/:productID", verify, GetProduct);
 
 // Update a specific product
-router.patch("/:productID", verify, updatedProduct);
+router.patch("/:productID", verify, UpdateProduct);
 
 // Delete a specific Product
 router.delete("/:productID", verify, DeleteProduct);
